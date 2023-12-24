@@ -1,0 +1,19 @@
+/* .productList{ 
+     display: flex;
+    justify-content: center;  
+   
+}*/
+
+/* .productContainer{
+    width: 100%;
+    max-width: 1250px;
+    padding-left: 10%;
+  
+} */
+.sectionHeading{
+    padding: 15px 25px;
+    background-color: rgb(248, 244, 244);
+    font-weight: 700;
+    color: rgb(70, 59, 59);
+   
+}

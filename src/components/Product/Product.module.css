@@ -1,0 +1,28 @@
+.card{
+    flex: 0 0 auto;
+    width: 250px;
+    height: 400px;
+    /* background-color: blue; */
+    /* margin: 0 10px; */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .cardName{
+    color: blue;
+    font-size: 15px;
+  }
+  .price{
+    margin-top: 10px;
+    color: gray;
+    display: flex;
+    justify-content: space-between;
+    
+   
+  }
+  .price :last-child{
+    color: rgb(41, 35, 35);
+    padding-left: 5px;
+  }

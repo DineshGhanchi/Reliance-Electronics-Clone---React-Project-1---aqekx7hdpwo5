@@ -1,0 +1,42 @@
+.header{
+    background-color: #e90707;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* position:  fixed; */
+}
+.logo{
+    /* vertical-align: baseline; */
+    max-width: 100%;
+    max-height: none;
+    display: block;
+    width: 150px;
+    height: 50px;
+}
+.headerDetail {
+    display: flex;
+    align-items: center;
+    color: white;
+}
+.headerDetail span{
+    padding: 0 5px; 
+    margin: 0 5px;
+    font-size: 13px;
+    font-weight: 700;
+}
+.borderRight{
+    border-right: 1px solid white;
+}
+.cart, .login{
+   text-decoration: none;
+   color: white;
+   /* border-right: "1px solid white" */
+   border-right: 1px solid white;
+}
+
+.menu{
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
