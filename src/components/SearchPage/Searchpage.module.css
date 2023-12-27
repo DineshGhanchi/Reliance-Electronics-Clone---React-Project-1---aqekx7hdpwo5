@@ -1,0 +1,8 @@
+.CatagoriesPage{
+    background-color: rgb(241, 233, 233);
+}
+.heading{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}

@@ -1,14 +1,16 @@
+
 import { IoMenu } from "react-icons/io5";
 import Search from '../Search/Search';
 import styles from './Header.module.css';
 import { FaShoppingCart, FaUser } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import MenuModal from "../MenuModal/MenuModal";
 import { Link, Outlet } from "react-router-dom"
 
 export default function Header() {
   const [categories, setCategories] = useState([]);
   const [showMenuModal, setShowMenuModal] = useState(false);
+  const menuRef = useRef(null);
   useEffect(
     () => {
       async function fetchCategories() {
@@ -25,6 +27,16 @@ export default function Header() {
       fetchCategories()
     }
     , [])
+
+    const handleOutsideClick =(e)=>{
+      if (menuRef.current && !menuRef.current.contains(e.target)){
+        setShowMenuModal(false);
+      }
+    }    
+    useEffect(()=>{
+        document.addEventListener('click',handleOutsideClick)
+    })
+
   return (
     <div className={styles.header}>
       <Link to="/" >
@@ -37,7 +49,7 @@ export default function Header() {
       <div className={styles.menu}>Menu <IoMenu onClick={() => {
         setShowMenuModal(!showMenuModal);
       }} style={{ fontSize: '28px' }} /></div>
-      {showMenuModal && <MenuModal menuItems={categories} />}
+      {showMenuModal && <span ref={menuRef}><MenuModal  menuItems={categories} /></span>}
       <Search />
       <div className={styles.headerDetail}>
         <span style={{ borderRight: "1px solid white" }}>Select Your Pin code</span>

@@ -3,6 +3,9 @@ import Header from "./Header/Header";
 import { Home } from "./Home/Home";
 import {Routes, Route} from "react-router-dom"
 import PageLayout from './PageLayout/PageLayout';
+import SearchPage from './SearchPage/SearchPage';
+import LoginPage from './LoginPage/Loginpage';
+
 
 
 function App() {
@@ -13,8 +16,9 @@ function App() {
           <Route path="/" element={<PageLayout/>}>
             <Route path="" element={<Home />} />
             <Route path="cart" element={<div>cart Detail</div>} />
+            <Route path="/searchPage/:id" element={<SearchPage />} />
           </Route>
-          <Route path="login" element={<div>this is login page</div>} />
+          <Route path="login" element={<LoginPage />} />
         </Routes>
     </>
 
