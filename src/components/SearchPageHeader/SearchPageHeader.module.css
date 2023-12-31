@@ -1,0 +1,9 @@
+.searchPageHeader{
+    background-color: rgb(233, 227, 227);
+    height: 50px;
+}
+.searchPageHeader span{
+    margin: auto 7px;
+}
+
+

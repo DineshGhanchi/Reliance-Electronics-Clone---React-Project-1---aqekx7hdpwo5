@@ -1,8 +1,30 @@
-.CatagoriesPage{
-    background-color: rgb(241, 233, 233);
+.container{
+   display: grid;
+   grid-template-rows: 60px auto;
+   grid-template-columns: 1fr 3fr;
+   gap: 10px 10px;
+   background-color: rgb(233, 227, 227);
+
 }
-.heading{
-    padding: 10px;
+.container div{
+    background-color: white;
+    box-shadow: 5px 5px rgb(226, 223, 223);
+}
+.asideHead{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.cardBoxHeader{
     display: flex;
+    justify-content: space-between;
     align-items: center;
+    padding: 0 30px;
+}
+.cardBox{
+  display: flex;
+  flex-wrap: wrap;
+}
+.sorting > span {
+  margin: 0 10px;
 }

@@ -5,13 +5,14 @@ import {Routes, Route} from "react-router-dom"
 import PageLayout from './PageLayout/PageLayout';
 import SearchPage from './SearchPage/SearchPage';
 import LoginPage from './LoginPage/Loginpage';
+import { SearchProvider } from '../context/SearchContext';
 
 
 
 function App() {
   return (
 
-    <>
+    <SearchProvider>
         <Routes>
           <Route path="/" element={<PageLayout/>}>
             <Route path="" element={<Home />} />
@@ -20,7 +21,7 @@ function App() {
           </Route>
           <Route path="login" element={<LoginPage />} />
         </Routes>
-    </>
+    </SearchProvider>
 
 
   )

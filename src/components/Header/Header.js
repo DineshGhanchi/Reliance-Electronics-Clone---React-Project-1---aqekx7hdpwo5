@@ -1,4 +1,3 @@
-
 import { IoMenu } from "react-icons/io5";
 import Search from '../Search/Search';
 import styles from './Header.module.css';
@@ -28,14 +27,13 @@ export default function Header() {
     }
     , [])
 
-    const handleOutsideClick =(e)=>{
-      if (menuRef.current && !menuRef.current.contains(e.target)){
-        setShowMenuModal(false);
-      }
-    }    
-    useEffect(()=>{
-        document.addEventListener('click',handleOutsideClick)
-    })
+  const handleOutsideClick = (e) => {
+    setShowMenuModal(false);
+  }
+
+  useEffect(() => {
+    document.addEventListener('click', handleOutsideClick, true);
+  })
 
   return (
     <div className={styles.header}>
@@ -46,22 +44,23 @@ export default function Header() {
           className={styles.logo}
         />
       </Link>
-      <div className={styles.menu}>Menu <IoMenu onClick={() => {
+      <div className={styles.menu}>Menu <IoMenu onClick={(e) => {
         setShowMenuModal(!showMenuModal);
+        e.stopPropagation();
       }} style={{ fontSize: '28px' }} /></div>
-      {showMenuModal && <span ref={menuRef}><MenuModal  menuItems={categories} /></span>}
+      {showMenuModal && <MenuModal menuItems={categories} />}
       <Search />
       <div className={styles.headerDetail}>
         <span style={{ borderRight: "1px solid white" }}>Select Your Pin code</span>
         <Link to="cart">
           <div>
-            < FaShoppingCart  style={{color:"white"}}/>
+            < FaShoppingCart style={{ color: "white" }} />
             <span className={styles.cart} >Cart</span>
           </div>
         </Link>
         <Link to="login">
           <div>
-            <FaUser style={{color:"white"}}/>
+            <FaUser style={{ color: "white" }} />
             <span className={styles.login}>Login</span>
           </div>
         </Link>
