@@ -6,6 +6,7 @@ import PageLayout from './PageLayout/PageLayout';
 import SearchPage from './SearchPage/SearchPage';
 import LoginPage from './LoginPage/Loginpage';
 import { SearchProvider } from '../context/SearchContext';
+import SignupPage from './SignupPage/SignupPage';
 
 
 
@@ -20,6 +21,7 @@ function App() {
             <Route path="/searchPage/:id" element={<SearchPage />} />
           </Route>
           <Route path="login" element={<LoginPage />} />
+          <Route path="Signup" element={<SignupPage />} />
         </Routes>
     </SearchProvider>
 

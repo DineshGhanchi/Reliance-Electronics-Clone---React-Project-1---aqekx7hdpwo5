@@ -13,12 +13,13 @@ export default function CheckboxesGroup() {
     jason: false,
     antoine: false,
   });
-
+ console.log('CheckboxesGroup');
   const handleChange = (event) => {
     setState({
       ...state,
       [event.target.name]: event.target.checked,
     });
+    
   };
 
   const { gilad, jason, antoine } = state;

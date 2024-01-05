@@ -6,7 +6,11 @@ import Banner from '../Banner/Banner';
 export const Home = () => {
   const url1 = 'https://academics.newtonschool.co/api/v1/ecommerce/electronics/products?sort={"price":-1}'
   const url2 = 'https://academics.newtonschool.co/api/v1/ecommerce/electronics/products?sort={"rating":-1}'
-  const url3 = ''
+  const url3 = 'https://academics.newtonschool.co/api/v1/ecommerce/electronics/products?filter={"subCategory":"ac"}'
+  const url4 = 'https://academics.newtonschool.co/api/v1/ecommerce/electronics/products?filter={"subCategory":"refrigerator"}'
+  const url5 = 'https://academics.newtonschool.co/api/v1/ecommerce/electronics/products?filter={"subCategory":"mobile"}'
+  const url6 = 'https://academics.newtonschool.co/api/v1/ecommerce/electronics/products?filter={"subCategory":"tv"}'
+  const url7 = 'https://academics.newtonschool.co/api/v1/ecommerce/electronics/products?filter={"subCategory":"laptop"}'
 
   return (
   <>  
@@ -64,7 +68,11 @@ export const Home = () => {
   
   <ProductList  sectionName={" Lowest Prices of the Today"} url={url1}/>
   <ProductList  sectionName={"Trending Products"} url={url2}/>
-  <ProductList  sectionName={"Products by Categories"} url={url2}/>
+  <ProductList  sectionName={"Bestselling smartphones"} url={url5}/>
+  <ProductList  sectionName={"Bestselling  Laptop"} url={url7}/>
+  <ProductList  sectionName={"Bestselling refrigeration"} url={url4}/>
+  <ProductList  sectionName={"Bestselling Ac"} url={url3}/>
+  <ProductList  sectionName={"Bestselling tv"} url={url6}/>
 </>  
   )
 }

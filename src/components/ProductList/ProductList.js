@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styles from './ProductList.module.css'
 import CardGroup from '../CardGroup/CardGroup';
+import { Button } from '@mui/material';
 
 const ProductList = ({ sectionName , url}) => {
   const [products, setProducts] = useState([]);
@@ -24,6 +25,7 @@ const ProductList = ({ sectionName , url}) => {
   return (
     <section className={styles.productList} >
       <h6 className={styles.sectionHeading}>{sectionName}</h6>
+      <Button variant="contained" style={{margin:'0 10px'}}>View All</Button>
       <CardGroup products={products}/>
     </section>
   )
