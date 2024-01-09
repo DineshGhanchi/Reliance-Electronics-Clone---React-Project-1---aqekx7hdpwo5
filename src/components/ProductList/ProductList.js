@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react'
 import styles from './ProductList.module.css'
 import CardGroup from '../CardGroup/CardGroup';
 import { Button } from '@mui/material';
+import { Link } from 'react-router-dom';
+import { useSearch } from '../../context/SearchContext';
 
 const ProductList = ({ sectionName , url}) => {
+  const {setSearchResult} = useSearch();
   const [products, setProducts] = useState([]);
   useEffect(
     () => {
@@ -21,11 +24,25 @@ const ProductList = ({ sectionName , url}) => {
       fetchProducts()
     }
     , [])
+    
+  async function handleVilewAllData(){
+    let url = 'https://academics.newtonschool.co/api/v1/ecommerce/electronics/products'
+    let data = await fetch(url, {
+      headers: {
+        projectId: 'f104bi07c490'
+      }
+    })
+    let res = await data.json();
+     console.log(res.data);
+     setSearchResult(res.data);
+  }  
 
   return (
     <section className={styles.productList} >
       <h6 className={styles.sectionHeading}>{sectionName}</h6>
-      <Button variant="contained" style={{margin:'0 10px'}}>View All</Button>
+      <Link to='searchPage/viewAll'>
+        <Button variant="contained" onClick={handleVilewAllData} style={{margin:'0 10px'}}>View All</Button>
+      </Link>
       <CardGroup products={products}/>
     </section>
   )

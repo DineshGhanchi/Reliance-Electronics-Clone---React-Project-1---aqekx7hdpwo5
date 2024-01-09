@@ -7,19 +7,20 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormHelperText from '@mui/material/FormHelperText';
 import Checkbox from '@mui/material/Checkbox';
 
-export default function CheckboxesGroup() {
+export default function CheckBox({ name, data }) {
+  
   const [state, setState] = React.useState({
     gilad: true,
     jason: false,
     antoine: false,
   });
- console.log('CheckboxesGroup');
+
   const handleChange = (event) => {
     setState({
       ...state,
       [event.target.name]: event.target.checked,
     });
-    
+
   };
 
   const { gilad, jason, antoine } = state;
@@ -28,30 +29,21 @@ export default function CheckboxesGroup() {
   return (
     <Box sx={{ display: 'flex' }}>
       <FormControl sx={{ m: 3 }} component="fieldset" variant="standard">
-        <FormLabel component="legend">Filter By: </FormLabel>
+        <FormLabel component="legend">Filter By: <span style={{ color: '#584d4d', fontSize: '15px', fontWeight: "600" }}>{name}</span></FormLabel>
         <FormGroup>
-          <FormControlLabel
-            control={
-              <Checkbox checked={gilad} onChange={handleChange} name="gilad" />
-            }
-            label="Gilad Gray"
-          />
-          <FormControlLabel
-            control={
-              <Checkbox checked={jason} onChange={handleChange} name="jason" />
-            }
-            label="Jason Killian"
-          />
-          <FormControlLabel
-            control={
-              <Checkbox checked={antoine} onChange={handleChange} name="antoine" />
-            }
-            label="Antoine Llorca"
-          />
+          {data.map((item) => {
+            return <FormControlLabel
+              control={
+                <Checkbox checked={item} onChange={handleChange} name={item} />
+              }
+              label= {item}
+            />
+          })}
+          
         </FormGroup>
         <FormHelperText>Be careful</FormHelperText>
       </FormControl>
-     
+
     </Box>
   );
 }

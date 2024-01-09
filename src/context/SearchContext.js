@@ -14,7 +14,7 @@ export const SearchProvider = ({children})=>{
         }
       }) 
        const data = await res.json();
-       setSearchResult(data.data);         
+       setSearchResult(data.data); 
     }
   
   return (
