@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { useSearch } from '../../context/SearchContext';
 
 const ProductList = ({ sectionName , url}) => {
-  const {setSearchResult} = useSearch();
+  const {setSearchResult,setClickEvent} = useSearch();
   const [products, setProducts] = useState([]);
   useEffect(
     () => {
@@ -25,8 +25,9 @@ const ProductList = ({ sectionName , url}) => {
     }
     , [])
     
-  async function handleVilewAllData(){
+  async function handleViewAllData(){
     let url = 'https://academics.newtonschool.co/api/v1/ecommerce/electronics/products'
+    setClickEvent(url);
     let data = await fetch(url, {
       headers: {
         projectId: 'f104bi07c490'
@@ -41,7 +42,7 @@ const ProductList = ({ sectionName , url}) => {
     <section className={styles.productList} >
       <h6 className={styles.sectionHeading}>{sectionName}</h6>
       <Link to='searchPage/viewAll'>
-        <Button variant="contained" onClick={handleVilewAllData} style={{margin:'0 10px'}}>View All</Button>
+        <Button variant="contained" onClick={handleViewAllData} style={{margin:'0 10px'}}>View All</Button>
       </Link>
       <CardGroup products={products}/>
     </section>

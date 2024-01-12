@@ -3,22 +3,23 @@ import { createContext, useContext, useState } from "react";
 const SearchContext = createContext();
 
 export const SearchProvider = ({children})=>{
-  const [searchQuery , setSearchQuery] = useState("");
+  // const [searchQuery , setSearchQuery] = useState("");
   const [searchResult , setSearchResult] = useState(null);
+  const [clickEvent, setClickEvent] = useState('');
 
-  const handleSearch = async ()=>{
-       const url = `https://academics.newtonschool.co/api/v1/ecommerce/electronics/products?search={"name":"${searchQuery}"}`
-       let res = await fetch(url, {
-        headers: {
-          projectId: 'f104bi07c490'
-        }
-      }) 
-       const data = await res.json();
-       setSearchResult(data.data); 
-    }
+  // const handleSearch = async ()=>{
+  //      const url = `https://academics.newtonschool.co/api/v1/ecommerce/electronics/products?search={"name":"${searchQuery}"}`
+  //      let res = await fetch(url, {
+  //       headers: {
+  //         projectId: 'f104bi07c490'
+  //       }
+  //     }) 
+  //      const data = await res.json();
+  //      setSearchResult(data.data); 
+  //   }
   
   return (
-    <SearchContext.Provider value={{searchQuery,setSearchQuery,searchResult,setSearchResult,handleSearch}}> 
+    <SearchContext.Provider value={{setClickEvent,clickEvent,searchResult,setSearchResult}}> 
         {children}
     </SearchContext.Provider>
   )

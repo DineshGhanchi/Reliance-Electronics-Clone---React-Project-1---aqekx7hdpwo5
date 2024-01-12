@@ -2,7 +2,6 @@ import { useParams } from 'react-router-dom';
 import React, { useEffect } from 'react'
 import SearchPageHeader from '../SearchPageHeader/SearchPageHeader';
 import styles from './Searchpage.module.css'
-import RangeSlider from '../Slider/Slider';
 import FilterBox from '../FilterBox/FilterBox';
 import { useSearch } from '../../context/SearchContext';
 import Product from '../Product/Product';

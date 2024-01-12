@@ -31,6 +31,7 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function SignupPage() {
+  const [checkSubmition, setCheckSubmition] = React.useState(false);
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -60,8 +61,9 @@ export default function SignupPage() {
       if (!response.ok) {
         alert("SignUP failed");
         return;
-      }
+      }       
       alert("You are successfully Registered");
+      setCheckSubmition(true);
     } catch (error) {
       alert("Error Please check");
     }
@@ -142,7 +144,7 @@ export default function SignupPage() {
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
           >
-            Sign Up
+              Sign Up 
           </Button>
           <Grid container justifyContent="flex-end">
             <Grid item>

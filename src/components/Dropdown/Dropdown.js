@@ -7,7 +7,7 @@ import { styled } from '@mui/system';
 import { useSearch } from '../../context/SearchContext';
 
 export default function Dropdowns() {
-  const {setSearchResult,searchQuery} = useSearch();
+  const {setSearchResult,clickEvent} = useSearch();
   const [current ,setCurrent] = React.useState('');  
   const [sortingQuery, setSortingQuery] = React.useState('');
   
@@ -17,14 +17,14 @@ export default function Dropdowns() {
     if(menuItem === 'Price(low-high)'){
         setSortingQuery('"rating":1');
     }else if(menuItem === 'Price(high-low)'){
-        setSortingQuery('"price":-1');
-    }else if(menuItem === 'Rating(high-low)'){
         setSortingQuery('"price":1');
+    }else if(menuItem === 'Rating(high-low)'){
+        setSortingQuery('"price":-1');
     }
     
    const handleSorting =  async() => {
       console.log(`Clicked on ${menuItem}`);
-      const url = `https://academics.newtonschool.co/api/v1/ecommerce/electronics/products?search={"name":"${searchQuery}"}&sort={${sortingQuery}}`
+      const url = `${clickEvent}&sort={${sortingQuery}}`
        let res = await fetch(url, {
         headers: {
           projectId: 'f104bi07c490'

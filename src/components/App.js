@@ -7,6 +7,7 @@ import SearchPage from './SearchPage/SearchPage';
 import LoginPage from './LoginPage/Loginpage';
 import { SearchProvider } from '../context/SearchContext';
 import SignupPage from './SignupPage/SignupPage';
+import ProductDetail from './ProductDetail/ProductDetail';
 
 
 
@@ -19,6 +20,7 @@ function App() {
             <Route path="" element={<Home />} />
             <Route path="cart" element={<div>cart Detail</div>} />
             <Route path="/searchPage/:id" element={<SearchPage />} />
+            <Route path="/productDetail/:id" element={<ProductDetail/>} />
           </Route>
           <Route path="login" element={<LoginPage />} />
           <Route path="Signup" element={<SignupPage />} />
