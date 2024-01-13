@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import React, { useEffect } from 'react'
 import SearchPageHeader from '../SearchPageHeader/SearchPageHeader';
 import styles from './Searchpage.module.css'
@@ -38,7 +38,7 @@ const SearchPage = () => {
         </div>
         <div className={styles.cardBox}>
           { searchResult && searchResult.map((product,index)=>{
-             return <Product product={product} index={index} key={index}/>
+             return <Link to={/productDetail/+product._id}><Product product={product} index={index} key={index}/></Link>
           })}
           
         </div>

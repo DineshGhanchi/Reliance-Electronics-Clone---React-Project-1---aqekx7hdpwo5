@@ -12,6 +12,8 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useNavigate } from "react-router-dom";
+import { ContactlessOutlined } from '@mui/icons-material';
 
 function Copyright(props) {
   return (
@@ -31,6 +33,7 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function  LoginPage() {
+  const navigate = useNavigate();
   const handleSubmit = async(event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -53,12 +56,16 @@ export default function  LoginPage() {
           body: JSON.stringify({ ...userObject }),
         }
       );
+      const data = await response.json();
       console.log("response", response);
+      console.log("data", data);
+
       if (!response.ok) {
         alert("Login failed");
         return;
       }
-      alert("You are successfully  Login");
+      localStorage.setItem("userLoginDetail", JSON.stringify(data));
+      navigate('/');
     } catch (error) {
       alert("Error Please check");
     }

@@ -1,0 +1,58 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid rgb(224, 224, 225);
+    background-color: rgb(255, 255, 255);;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 2px;
+    border-radius: 4px;
+    padding: 20px;
+    gap: 30px;
+}
+.image img{
+    width: 150px;
+    height: 150px;
+}
+.nameRating{
+    max-width: 350px;
+}
+.name{
+    font-size: 14px;
+    color: blue;
+    font-weight: 600;
+}
+.price{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    max-width: 300px;
+}
+.price :first-child{
+    font-size: 20px;
+    font-weight: 600;
+    display: block;
+    text-align: end;
+}
+.freeShipping{
+    font-size: 15px;
+    color: rgb(38, 167, 38);
+    text-align: end;
+    font-weight: 500;
+}
+.price :last-child{
+    font-size: 13px;
+    color: grey;
+    text-align: end;
+    margin-top: 15px;
+}
+.removeButtons{
+    display: flex;  
+}
+.removeButtons div{
+    border: 1px solid rgb(224, 224, 225);
+    background-color: rgb(255, 255, 255);
+    padding: 10px 0;
+    text-align: center;
+    width: 50%;
+    color: blue;
+}

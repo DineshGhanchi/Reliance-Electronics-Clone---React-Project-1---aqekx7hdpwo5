@@ -46,7 +46,7 @@ export default function Header() {
       </Link>
       <div className={styles.menu}>Menu <IoMenu onClick={(e) => {
         setShowMenuModal(!showMenuModal);
-        e.stopPropagation();
+         e.stopPropagation();
       }} style={{ fontSize: '28px' }} /></div>
       {showMenuModal && <MenuModal menuItems={categories} />}
       <Search />

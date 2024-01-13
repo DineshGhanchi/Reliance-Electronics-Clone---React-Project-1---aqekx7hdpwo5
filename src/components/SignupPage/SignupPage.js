@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useNavigate } from "react-router-dom";
 
 function Copyright(props) {
   return (
@@ -31,6 +32,7 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function SignupPage() {
+  const navigate = useNavigate();
   const [checkSubmition, setCheckSubmition] = React.useState(false);
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -62,8 +64,8 @@ export default function SignupPage() {
         alert("SignUP failed");
         return;
       }       
-      alert("You are successfully Registered");
       setCheckSubmition(true);
+      navigate('/login');
     } catch (error) {
       alert("Error Please check");
     }

@@ -3,12 +3,13 @@ import styles from './ProductDetail.module.css';
 import SearchPageHeader from '../SearchPageHeader/SearchPageHeader';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightTwoToneIcon from '@mui/icons-material/ChevronRightTwoTone';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 
 const ProductDetail = () => {
+    const navigate = useNavigate();
     const [productDetail, setProductDetail] = useState({});
-    let { id } = useParams();
+    let {id} = useParams();
     let url = `https://academics.newtonschool.co/api/v1/ecommerce/product/${id}`
     useEffect(() => {
         async function fetchProductDetail() {
@@ -18,7 +19,7 @@ const ProductDetail = () => {
                 }
             })
             let res = await data.json();
-             console.log(res.data);
+            console.log(res.data);
             setProductDetail(res.data);
 
         }
@@ -29,12 +30,47 @@ const ProductDetail = () => {
     function leftScroll() {
         imageBoxRef.current.scrollLeft -= 150;
     }
+
     function rightScroll() {
         imageBoxRef.current.scrollLeft += 150;
     }
+
+    async function handleCartData(buttonType) {
+        const user = JSON.parse(localStorage.getItem("userLoginDetail"));
+        try {
+            const response = await fetch(
+                `https://academics.newtonschool.co/api/v1/ecommerce/cart/${id}`,
+                {
+                    method: "PATCH",
+                    headers: {
+                        projectID: "f104bi07c490",
+                        Authorization: `${user.data.token}`
+                    },
+                    body: {
+                        "quantity" : 2
+                    }
+                }
+            );
+            const data = await response.json();
+            console.log("response", response);
+            console.log("data", data);
+
+            if (!response.ok) {
+                navigate('/login');
+                return;
+            }
+            if(buttonType === 'addToCart'){
+                navigate('/cart');
+            }else if(buttonType === 'buyNow'){
+                navigate('/checkOutPage');
+            }
+        } catch (error) {
+            navigate('/login');
+        }
+    }
     return (
         <>
-            <SearchPageHeader catagoryName={productDetail.brand} />
+            <SearchPageHeader catagoryName={productDetail?.brand} />
             <div className={styles.container}>
                 <div className={styles.imageBox}>
                     <div className={styles.mainImage}>
@@ -57,15 +93,15 @@ const ProductDetail = () => {
                     <div className={styles.features}>
                         <span>Key Features</span>
                         <ul>
-                           {productDetail.features?.map((data,index)=>{
-                               return <li key={index}>{data}</li>
-                           })}
+                            {productDetail.features?.map((data, index) => {
+                                return <li key={index}>{data}</li>
+                            })}
                         </ul>
                     </div>
                     <div className={styles.freeshipping}>Free Shipping!</div>
                     <div className={styles.cartButton}>
-                        <button>ADD TO CART</button>
-                        <button>BUY NOW</button>
+                        <button onClick={()=>handleCartData('addToCart')}>ADD TO CART</button>
+                        <button  onClick={()=>handleCartData('buyNow')}>BUY NOW</button>
                     </div>
                 </div>
             </div>
@@ -73,4 +109,4 @@ const ProductDetail = () => {
     )
 }
 
-export default ProductDetail
+export default React.memo(ProductDetail); 

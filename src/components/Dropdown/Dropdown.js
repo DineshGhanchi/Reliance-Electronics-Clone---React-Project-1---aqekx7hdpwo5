@@ -10,21 +10,23 @@ export default function Dropdowns() {
   const {setSearchResult,clickEvent} = useSearch();
   const [current ,setCurrent] = React.useState('');  
   const [sortingQuery, setSortingQuery] = React.useState('');
+  const [Quary, setQuary] = React.useState('&');
   
   const createHandleMenuClick = (menuItem) => {
     setCurrent(menuItem);
   
     if(menuItem === 'Price(low-high)'){
-        setSortingQuery('"rating":1');
+        setSortingQuery('"price":-1');
     }else if(menuItem === 'Price(high-low)'){
         setSortingQuery('"price":1');
     }else if(menuItem === 'Rating(high-low)'){
-        setSortingQuery('"price":-1');
+        setSortingQuery('"rating":1');
     }
     
    const handleSorting =  async() => {
       console.log(`Clicked on ${menuItem}`);
-      const url = `${clickEvent}&sort={${sortingQuery}}`
+      {clickEvent.includes('?')?setQuary('&'):setQuary('?')}
+      const url = `${clickEvent}${Quary}sort={${sortingQuery}}`
        let res = await fetch(url, {
         headers: {
           projectId: 'f104bi07c490'

@@ -8,6 +8,8 @@ import LoginPage from './LoginPage/Loginpage';
 import { SearchProvider } from '../context/SearchContext';
 import SignupPage from './SignupPage/SignupPage';
 import ProductDetail from './ProductDetail/ProductDetail';
+import ShoppingCart from './ShoppingCart/ShoppingCart';
+import CheckOutPage from './CheckOutPage/CheckOutPage';
 
 
 
@@ -18,9 +20,10 @@ function App() {
         <Routes>
           <Route path="/" element={<PageLayout/>}>
             <Route path="" element={<Home />} />
-            <Route path="cart" element={<div>cart Detail</div>} />
+            <Route path="cart" element={<ShoppingCart />} />
             <Route path="/searchPage/:id" element={<SearchPage />} />
             <Route path="/productDetail/:id" element={<ProductDetail/>} />
+            <Route path="/checkOutPage" element={<CheckOutPage />} />
           </Route>
           <Route path="login" element={<LoginPage />} />
           <Route path="Signup" element={<SignupPage />} />

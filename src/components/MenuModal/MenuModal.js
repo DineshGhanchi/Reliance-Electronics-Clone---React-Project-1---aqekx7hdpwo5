@@ -6,16 +6,16 @@ import { useSearch } from '../../context/SearchContext';
 const MenuModal = ({menuItems}) => {
   const {setSearchResult,setClickEvent} = useSearch();
    
-   function handleCatagoryData(item){
+    const handleCatagoryData = async(item)=>{
     console.log('handleCatagoryData');
     let url = `https://academics.newtonschool.co/api/v1/ecommerce/electronics/products?filter={"subCategory":"${item}"}`
     setClickEvent(url);
-    let data =  fetch(url, {
+    let data = await fetch(url, {
       headers: {
         projectId: 'f104bi07c490'
       }
     })
-    let res =  data.json();
+    let res = await data.json();
      console.log(res.data);
      setSearchResult(res.data);
   }
@@ -24,7 +24,7 @@ const MenuModal = ({menuItems}) => {
     <div className={styles.container} >
       <ul>
         {menuItems.map((item)=>{
-            return <Link to={"/searchPage/"+item}><li key={item} onClick={()=>handleCatagoryData(item)}>{item}</li></Link>
+            return  <Link to={/searchPage/+item}> <li onClick={()=>handleCatagoryData(item)}  key={item}>{item}</li></Link> 
         })}
       </ul>
     </div>

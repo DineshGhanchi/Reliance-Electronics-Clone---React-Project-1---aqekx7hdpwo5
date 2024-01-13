@@ -1,0 +1,106 @@
+.checkOutSection{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+.container{
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    margin: 0 30px;
+    gap: 30px;
+    
+}
+.counterLocation{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border: 1px solid rgb(224, 224, 225);
+    background-color: rgb(255, 255, 255);;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 2px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+.counter :first-child{
+    font-size: 16px;
+    color: black;
+    font-weight: 500;
+    margin-right: 10px;
+}
+.counter :last-child{
+    color: rgb(110, 99, 99);
+}
+.location :first-child{
+    font-size: 13px;
+    font-weight: 500;
+    color: rgb(84, 82, 82);
+    margin-right: 3px;
+}
+.pincode{
+    font-size: 13px;
+    font-weight: 500;
+    color: rgb(6, 6, 6);
+}
+.checkOutButton{
+    background-color: red;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    padding: 7px 0;
+}
+.priceDetail{
+    margin-top: 20px;
+    padding: 16px;
+    border: 1px solid rgb(224, 224, 225);
+    background-color: rgb(255, 255, 255);;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 2px;
+    border-radius: 4px;
+}
+.priceDetailBoxHeading{
+    font-size: 15px;
+    color: rgb(58, 53, 53);
+    font-weight: 500;
+   margin-top: 25px;
+   margin-bottom: 20px;
+
+}
+.actualPrice{
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.deleveryCharges{
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+   margin-top: 10px;
+
+}
+.deleveryCharges :last-child{
+   color: green;
+   font-size: 15px;
+}
+.amountPayable{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    border-top: 1px solid rgb(183, 173, 173);
+    border-bottom: 1px solid rgb(188, 174, 174);
+    color: grey;
+    padding: 10px 0;
+}
+.amountPayable :last-child{
+    color: blue;
+    font-weight: 500;
+}
+.text{
+    margin-top: 25px;
+    color: gray;
+    font-size: 15px;
+    font-weight: 500;
+}    
