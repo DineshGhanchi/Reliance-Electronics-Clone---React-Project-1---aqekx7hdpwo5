@@ -35,13 +35,15 @@ const ProductList = ({ sectionName , url}) => {
     })
     let res = await data.json();
      console.log(res.data);
-     setSearchResult(res.data);
+     setTimeout(() => {
+       setSearchResult(res.data);
+    }, 3000)
   }  
 
   return (
     <section className={styles.productList} >
       <h6 className={styles.sectionHeading}>{sectionName}</h6>
-      <Link to='searchPage/viewAll'>
+      <Link to='searchPage/viewAll' >
         <Button variant="contained" onClick={handleViewAllData} style={{margin:'0 10px'}}>View All</Button>
       </Link>
       <CardGroup products={products}/>

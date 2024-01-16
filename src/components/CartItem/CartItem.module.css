@@ -1,3 +1,8 @@
+.mainBox{
+    background-color: rgb(255, 255, 255);;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 2px;
+    margin-bottom: 20px;
+}
 .container{
     display: flex;
     align-items: center;
@@ -47,6 +52,7 @@
 }
 .removeButtons{
     display: flex;  
+    cursor: pointer;
 }
 .removeButtons div{
     border: 1px solid rgb(224, 224, 225);

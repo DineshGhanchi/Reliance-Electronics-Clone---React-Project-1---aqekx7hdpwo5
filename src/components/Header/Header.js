@@ -9,9 +9,24 @@ import { Link, Outlet } from "react-router-dom"
 export default function Header() {
   const [categories, setCategories] = useState([]);
   const [showMenuModal, setShowMenuModal] = useState(false);
+  const [loginDetail, setLoginDetail] = useState(true);
+  const [showLoginDetailModal, setShowLoginDetailModal] = useState(false);
   const menuRef = useRef(null);
+  const user = JSON.parse(localStorage.getItem("userLoginDetail"));
+
+  
+  function handleLogoutModal() {
+     setShowLoginDetailModal(!showLoginDetailModal);
+  }
+  function userLogout(){
+    localStorage.setItem("userLoginDetail", JSON.stringify(null));
+  }
+
   useEffect(
     () => {
+      if ( user != null && user.data.name ) {
+        setLoginDetail(true);
+      }
       async function fetchCategories() {
         let url = 'https://academics.newtonschool.co/api/v1/ecommerce/electronics/categories'
         let data = await fetch(url, {
@@ -46,25 +61,40 @@ export default function Header() {
       </Link>
       <div className={styles.menu}>Menu <IoMenu onClick={(e) => {
         setShowMenuModal(!showMenuModal);
-         e.stopPropagation();
-      }} style={{ fontSize: '28px' }} /></div>
+        e.stopPropagation();
+      }} style={{ fontSize: '28px' }} />
+      </div>
       {showMenuModal && <MenuModal menuItems={categories} />}
       <Search />
       <div className={styles.headerDetail}>
         <span style={{ borderRight: "1px solid white" }}>Select Your Pin code</span>
-        <Link to="cart">
+        <Link to="cart" style={{textDecoration: 'none'}}>
           <div>
             < FaShoppingCart style={{ color: "white" }} />
             <span className={styles.cart} >Cart</span>
           </div>
-        </Link>
-        <Link to="login">
-          <div>
-            <FaUser style={{ color: "white" }} />
-            <span className={styles.login}>Login</span>
-          </div>
-        </Link>
+        </Link> 
+        {user!=null && loginDetail 
+         ?  <div onClick={handleLogoutModal}>
+             <FaUser style={{ color: "white" , cursor:"pointer" }} />
+             <span className={styles.login}>Hi {user.data.name}</span>
+            </div>
+         : <Link to="login" style={{textDecoration: 'none'}}>
+            <div className={styles.login}>
+              <FaUser style={{ color: "white", cursor:"pointer" }} />
+              <span className={styles.login}>Login</span>
+            </div>
+           </Link> 
+        }
       </div>
+      {showLoginDetailModal && <div className={styles.logoutModal}>
+        <ul>
+          <Link style={{textDecoration: 'none'}}><li>My Wishlist</li></Link>
+          <Link style={{textDecoration: 'none'}}><li>My Orders</li></Link>
+          <Link to="/login" style={{textDecoration: 'none'}}><li onClick={userLogout}>Logout</li></Link>
+        </ul>
+       </div>
+      }
     </div>
   )
 }

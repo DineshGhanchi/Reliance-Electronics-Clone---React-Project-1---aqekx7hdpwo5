@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const Search = () => {
   const [searchValue, setSearchValue] = useState('');
-  const [searchQuery , setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
   const { setClickEvent, searchResult, setSearchResult, handleSearch } = useSearch();
 
   function handleSearchValue(e) {
@@ -29,7 +29,9 @@ const Search = () => {
       }
     })
     const data = await res.json();
-    setSearchResult(data.data);
+    setTimeout(() => {
+       setSearchResult(data.data);
+    }, 3000)
   }
 
   return (

@@ -28,3 +28,10 @@
 .sorting > span {
   margin: 0 10px;
 }
+.loader{
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

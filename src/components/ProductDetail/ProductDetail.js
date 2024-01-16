@@ -9,7 +9,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 const ProductDetail = () => {
     const navigate = useNavigate();
     const [productDetail, setProductDetail] = useState({});
-    let {id} = useParams();
+    let { id } = useParams();
     let url = `https://academics.newtonschool.co/api/v1/ecommerce/product/${id}`
     useEffect(() => {
         async function fetchProductDetail() {
@@ -44,11 +44,14 @@ const ProductDetail = () => {
                     method: "PATCH",
                     headers: {
                         projectID: "f104bi07c490",
-                        Authorization: `${user.data.token}`
+                        Authorization: `Bearer ${user.token}`,
+                        'Content-Type':'application/json'
                     },
-                    body: {
-                        "quantity" : 2
-                    }
+                    body:
+                        JSON.stringify({
+                            "quantity": 2
+                        }
+                        )
                 }
             );
             const data = await response.json();
@@ -59,9 +62,9 @@ const ProductDetail = () => {
                 navigate('/login');
                 return;
             }
-            if(buttonType === 'addToCart'){
+            if (buttonType === 'addToCart') {
                 navigate('/cart');
-            }else if(buttonType === 'buyNow'){
+            } else if (buttonType === 'buyNow') {
                 navigate('/checkOutPage');
             }
         } catch (error) {
@@ -100,8 +103,8 @@ const ProductDetail = () => {
                     </div>
                     <div className={styles.freeshipping}>Free Shipping!</div>
                     <div className={styles.cartButton}>
-                        <button onClick={()=>handleCartData('addToCart')}>ADD TO CART</button>
-                        <button  onClick={()=>handleCartData('buyNow')}>BUY NOW</button>
+                        <button onClick={() => handleCartData('addToCart')}>ADD TO CART</button>
+                        <button onClick={() => handleCartData('buyNow')}>BUY NOW</button>
                     </div>
                 </div>
             </div>

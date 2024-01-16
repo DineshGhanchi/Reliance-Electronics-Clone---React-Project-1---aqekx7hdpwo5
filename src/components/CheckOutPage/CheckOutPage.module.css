@@ -1,0 +1,20 @@
+.container{
+    padding: 20px;
+}
+.address , .details , .payment {
+   
+    padding: 8px 16px;
+    background-color: rgb(231, 233, 233);
+    border-radius: 3px;
+    margin-bottom: 10px;
+    width: 100%;
+    border: 1px solid rgb(224, 224, 225);
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 2px;
+}
+.address div, .details div, .payment div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 15px;
+    font-weight: 500;
+}
