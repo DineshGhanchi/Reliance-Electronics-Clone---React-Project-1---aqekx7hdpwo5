@@ -2,6 +2,10 @@
     display: flex;
     justify-content: space-around;
     margin-top: 10px;
+    border-bottom: 1px solid rgb(224, 224, 225);
+    background-color: rgb(255, 255, 255);;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 2px;
+    padding-bottom: 50px;
 }
 .imageBox{
     max-width: 520px;
@@ -114,3 +118,35 @@
     margin-left: 10px;
 }
 
+.productOverview{
+    padding: 0 30px;
+    margin-top: 10px;
+}
+.OverviewHeading{
+    margin: 20px 0;
+}
+.OverviewHeading :first-child{
+   font-size: 20px;
+   font-weight: 500;
+   margin-right: 10px;
+}
+.OverviewHeading :last-child{
+    font-size: 20px;
+}
+
+
+/* ================= media query =================== */
+
+@media screen and (max-width: 920px){
+    .container{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 520px){
+     .mainImage img{
+        width: 200px;
+     }
+}

@@ -18,7 +18,7 @@ const CardGroup = ({products}) => {
       <div className={styles.imageBox} ref={imageBoxRef}>
         {products.map((product , index)=>{
         //  return <div key={index} className={styles.card}><img src= {product.displayImage} style={{width:'250px'}}></img><div> card{index+1}</div></div>
-          return <Link to={/productDetail/+product._id} style={{textDecoration: 'none'}}><Product product={product} index={index} key={index}/></Link>
+          return <Link to={/productDetail/+product._id} style={{textDecoration: 'none'}} key={index}><Product product={product} index={index}/></Link>
         })}
       </div>
       <button onClick={rightScroll}><TiMediaPlay /></button>

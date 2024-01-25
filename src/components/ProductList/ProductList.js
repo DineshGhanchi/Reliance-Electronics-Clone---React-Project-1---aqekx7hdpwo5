@@ -37,7 +37,7 @@ const ProductList = ({ sectionName , url}) => {
      console.log(res.data);
      setTimeout(() => {
        setSearchResult(res.data);
-    }, 3000)
+    }, 2000)
   }  
 
   return (

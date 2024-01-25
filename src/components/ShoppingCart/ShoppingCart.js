@@ -3,7 +3,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import CartItem from '../CartItem/CartItem';
 import styles from './ShoppingCart.module.css'
 import { Link } from 'react-router-dom';
-import { ThreeDots } from 'react-loader-spinner';
+import Loader from '../Loader/Loader';
 
 const ShoppingCart = () => {
     const [cartItem, setCartItem] = useState(null);
@@ -22,25 +22,14 @@ const ShoppingCart = () => {
             console.log(result);
             setTimeout(() => {
                 setCartItem(result);
-            }, 3000)
+            }, 2000)
         }
         fetchCartItems();
     }, [])
     return (
         <>
             {!cartItem
-                ?<div className={styles.loader}>
-                    <ThreeDots
-                        visible={true}
-                        height="80"
-                        width="80"
-                        color="red"
-                        radius="9"
-                        ariaLabel="three-dots-loading"
-                        wrapperStyle={{}}
-                        wrapperClass=""
-                    />
-                </div>
+                ? <Loader />
                 : <div className={styles.container}>
                     <div className={styles.cardSection}>
                         <div className={styles.counterLocation}>

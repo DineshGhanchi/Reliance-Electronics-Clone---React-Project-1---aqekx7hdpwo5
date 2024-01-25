@@ -31,12 +31,13 @@ export default function CheckBox({ name, data }) {
       <FormControl sx={{ m: 3 }} component="fieldset" variant="standard">
         <FormLabel component="legend">Filter By: <span style={{ color: '#584d4d', fontSize: '15px', fontWeight: "600" }}>{name}</span></FormLabel>
         <FormGroup>
-          {data.map((item) => {
+          {data.map((item ,index) => {
             return <FormControlLabel
               control={
                 <Checkbox checked={item} onChange={handleChange} name={item} />
               }
               label= {item}
+              key={index}
             />
           })}
           

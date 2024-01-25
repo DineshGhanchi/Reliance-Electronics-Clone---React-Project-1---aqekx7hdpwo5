@@ -9,7 +9,7 @@ import { SearchProvider } from '../context/SearchContext';
 import SignupPage from './SignupPage/SignupPage';
 import ProductDetail from './ProductDetail/ProductDetail';
 import ShoppingCart from './ShoppingCart/ShoppingCart';
-import CheckOutPage from './CheckOutPage/CheckOutPage';
+import Checkout from './CheckOutPage/CheckOutPage';
 
 
 
@@ -23,7 +23,7 @@ function App() {
             <Route path="cart" element={<ShoppingCart />} />
             <Route path="/searchPage/:id" element={<SearchPage />} />
             <Route path="/productDetail/:id" element={<ProductDetail/>} />
-            <Route path="/checkOutPage" element={<CheckOutPage />} />
+            <Route path="/checkOutPage" element={<Checkout />} />
           </Route>
           <Route path="login" element={<LoginPage />} />
           <Route path="Signup" element={<SignupPage />} />

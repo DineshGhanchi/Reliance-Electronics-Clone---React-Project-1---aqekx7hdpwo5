@@ -9,40 +9,41 @@ import { useSearch } from '../../context/SearchContext';
 export default function Dropdowns() {
   const {setSearchResult,clickEvent} = useSearch();
   const [current ,setCurrent] = React.useState('');  
-  const [sortingQuery, setSortingQuery] = React.useState('');
-  const [Quary, setQuary] = React.useState('&');
   
   const createHandleMenuClick = (menuItem) => {
     setCurrent(menuItem);
-  
-    if(menuItem === 'Price(low-high)'){
-        setSortingQuery('"price":-1');
-    }else if(menuItem === 'Price(high-low)'){
-        setSortingQuery('"price":1');
-    }else if(menuItem === 'Rating(high-low)'){
-        setSortingQuery('"rating":1');
-    }
-    
-   const handleSorting =  async() => {
-      console.log(`Clicked on ${menuItem}`);
-      {clickEvent.includes('?')?setQuary('&'):setQuary('?')}
-      const url = `${clickEvent}${Quary}sort={${sortingQuery}}`
-       let res = await fetch(url, {
-        headers: {
-          projectId: 'f104bi07c490'
-        }
-      }) 
-       console.log('dropdown render');
-       const data = await res.json();
-       console.log(data.data);
-       setSearchResult(data.data); 
-
-    }
-    handleSorting();
-    return () => {
-      console.log(`Clicked on ${menuItem}`);   
-    };
+    handleSorting(menuItem);
+    // return () => {
+    //   console.log(`Clicked on ${menuItem}`);   
+    // };
   };
+
+  const handleSorting =  async(menuItem) => {   
+    if(clickEvent.includes("?")){
+      var url = `${clickEvent}&sort=`
+    }else{
+      var url = `${clickEvent}?sort=`
+    }
+
+    if(menuItem == 'Price(low-high)'){
+      url = url+`{"price":-1}`
+    }else if(menuItem == 'Price(high-low)'){
+      url = url+`{"price":1}`
+    }else if(menuItem == 'Rating(high-low)'){
+      url = url+`{"rating":1}`
+    }
+   
+     let res = await fetch(url, {
+      headers: {
+        projectId: 'f104bi07c490'
+      }
+    }) 
+     console.log('dropdown render');
+     const data = await res.json();
+     console.log(data.data);
+     setSearchResult(data.data); 
+
+  }
 
   return (
     <Dropdown>

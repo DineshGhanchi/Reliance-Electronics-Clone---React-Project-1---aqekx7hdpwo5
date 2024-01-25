@@ -4,11 +4,12 @@ import SearchPageHeader from '../SearchPageHeader/SearchPageHeader';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightTwoToneIcon from '@mui/icons-material/ChevronRightTwoTone';
 import { useNavigate, useParams } from 'react-router-dom';
+import Loader from '../Loader/Loader';
 
 
 const ProductDetail = () => {
     const navigate = useNavigate();
-    const [productDetail, setProductDetail] = useState({});
+    const [productDetail, setProductDetail] = useState(null);
     let { id } = useParams();
     let url = `https://academics.newtonschool.co/api/v1/ecommerce/product/${id}`
     useEffect(() => {
@@ -20,7 +21,9 @@ const ProductDetail = () => {
             })
             let res = await data.json();
             console.log(res.data);
-            setProductDetail(res.data);
+            setTimeout(() => {
+                setProductDetail(res.data);
+            }, 2000)
 
         }
         fetchProductDetail();
@@ -45,7 +48,7 @@ const ProductDetail = () => {
                     headers: {
                         projectID: "f104bi07c490",
                         Authorization: `Bearer ${user.token}`,
-                        'Content-Type':'application/json'
+                        'Content-Type': 'application/json'
                     },
                     body:
                         JSON.stringify({
@@ -73,43 +76,57 @@ const ProductDetail = () => {
     }
     return (
         <>
-            <SearchPageHeader catagoryName={productDetail?.brand} />
-            <div className={styles.container}>
-                <div className={styles.imageBox}>
-                    <div className={styles.mainImage}>
-                        <img src={productDetail?.displayImage} />
-                    </div>
-                    <div className={styles.mediaCarousal}>
-                        <button onClick={leftScroll}><ChevronLeftIcon /></button>
-                        {/* <div className={styles.mediaBox} ref={imageBoxRef}>
-                            {productDetail?.images.map((img, index) => {
-                                return <img src={img} key={index}/>
-                            })}
-                        </div>  */}
-                        <button onClick={rightScroll}><ChevronRightTwoToneIcon /></button>
-                    </div>
+            {!productDetail 
+                ? <Loader />
+                : <div>
+                    <SearchPageHeader catagoryName={productDetail.brand} />
+                    <div className={styles.container}>
+                        <div className={styles.imageBox}>
+                            <div className={styles.mainImage}>
+                                <img src={productDetail.displayImage} />
+                            </div>
+                            <div className={styles.mediaCarousal}>
+                                <button onClick={leftScroll}><ChevronLeftIcon /></button>
+                                <div className={styles.mediaBox} ref={imageBoxRef}>
+                                    {productDetail?.images.map((img, index) => {
+                                        return <img src={img} key={index} />
+                                    })}
+                                </div>
+                                <button onClick={rightScroll}><ChevronRightTwoToneIcon /></button>
+                            </div>
 
-                </div>
-                <div className={styles.description}>
-                    <div className={styles.productname}>{productDetail.name}</div>
-                    <div className={styles.price}><span>Offer Price :</span><span>₹{productDetail.price}</span></div>
-                    <div className={styles.features}>
-                        <span>Key Features</span>
-                        <ul>
-                            {productDetail.features?.map((data, index) => {
-                                return <li key={index}>{data}</li>
-                            })}
-                        </ul>
+                        </div>
+                        <div className={styles.description}>
+                            <div className={styles.productname}>{productDetail.name}</div>
+                            <div className={styles.price}><span>Offer Price :</span><span>₹{productDetail.price}</span></div>
+                            <div className={styles.features}>
+                                <span>Key Features</span>
+                                <ul>
+                                    {productDetail.features?.map((data, index) => {
+                                        return <li key={index}>{data}</li>
+                                    })}
+                                </ul>
+                            </div>
+                            <div className={styles.freeshipping}>Free Shipping!</div>
+                            <div className={styles.cartButton}>
+                                <button onClick={() => handleCartData('addToCart')}>ADD TO CART</button>
+                                <button onClick={() => handleCartData('buyNow')}>BUY NOW</button>
+                            </div>
+                        </div>
                     </div>
-                    <div className={styles.freeshipping}>Free Shipping!</div>
-                    <div className={styles.cartButton}>
-                        <button onClick={() => handleCartData('addToCart')}>ADD TO CART</button>
-                        <button onClick={() => handleCartData('buyNow')}>BUY NOW</button>
+                    <div className={styles.productOverview}>
+                        <div className={styles.OverviewHeading}><span>Specification : </span><span>{productDetail.name}</span></div>                          
+                        <div
+                           dangerouslySetInnerHTML={{
+                            __html: productDetail.description,
+                            }}
+
+                        ></div>
                     </div>
                 </div>
-            </div>
+            }
         </>
     )
 }
 
-export default React.memo(ProductDetail); 
+export default ProductDetail; 

@@ -1,0 +1,14 @@
+.pagination button{
+   width: 80px;
+   margin: 0 10px;
+   color: white;
+   background-color: #003380;
+   border-radius: 5px;
+   border: none;
+   padding: 5px 0;
+}
+.disabled {
+    background-color: #476ea8;
+    color: rgb(174, 168, 163);
+    opacity: 1;
+  }

@@ -1,6 +1,6 @@
 .container{
     position: absolute;
-    top: 50px;
+    top: 71px;
     left: 17%;
     background-color: #061d43;
     color: white;
@@ -16,4 +16,28 @@
 .container li{
     margin-bottom: 10px;
     color: white;
+}
+.crossIcon{
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    
+}
+
+/* ================= media queary ========================= */
+
+@media screen and (max-width: 1050px){
+    .container{
+        left: 25%;
+    }
+}
+@media screen and (max-width: 600px){
+    .container{
+        top: 80px;
+        left: 8%;
+    }
 }

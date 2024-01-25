@@ -31,7 +31,7 @@ const Search = () => {
     const data = await res.json();
     setTimeout(() => {
        setSearchResult(data.data);
-    }, 3000)
+    }, 2000)
   }
 
   return (

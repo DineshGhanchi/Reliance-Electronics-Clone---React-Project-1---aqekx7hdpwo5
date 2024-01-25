@@ -2,13 +2,14 @@
    display: grid;
    grid-template-rows: 60px auto;
    grid-template-columns: .7fr 3fr;
-   gap: 10px 10px;
+   gap: 5px 5px;
    background-color: rgb(233, 227, 227);
 
 }
 .container div{
-    background-color: white;
-    /* box-shadow: 5px 5px rgb(226, 223, 223); */
+    /* border-bottom: 1px solid rgb(224, 224, 225); */
+    background-color: rgb(255, 255, 255);;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 2px;
 }
 .asideHead{
   display: flex;
@@ -24,6 +25,7 @@
 .cardBox{
   display: flex;
   flex-wrap: wrap;
+  padding: 20px;
 }
 .sorting > span {
   margin: 0 10px;
@@ -34,4 +36,42 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.paginationBox{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* // ============ media quary =============== // */
+@media screen and (max-width: 1115px){
+  .cardBox{
+    padding-left: 80px;
+  }
+}
+@media screen and (max-width: 1070px){
+  .cardBox{
+    justify-content: space-around;
+  }
+}
+@media screen and (max-width: 800px){
+  .cardBox{
+    padding-left: 5px;
+  }
+}
+@media screen and (max-width: 722px){
+  .container{
+   grid-template-columns: .3fr 3fr;
+
+  }
+}
+@media screen and (max-width: 482px){
+    .aside , .asideHead{
+      display: none;
+    }
+    .container{
+      display: block;
+    }
 }

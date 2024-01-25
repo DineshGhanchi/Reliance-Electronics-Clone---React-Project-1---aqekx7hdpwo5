@@ -1,5 +1,45 @@
 .footer{
+    background-color: #003380;
+    color: white;
+}
+.websiteNavigation{
     width: 100%;
-    height: 100px;
-    background-color: blue;
+    padding: 10px 40px;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+.websiteNavigation div{
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+.websiteNavigation  span{
+    font-weight: 400;
+    font-size: 16px;
+    display: block;
+    margin-bottom: 5px;
+}
+.OutsideNavigation{
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 130px;
+    padding: 40px;
+    flex-wrap: wrap;
+}
+.downloadApp {
+    margin-left: 130px;
+}
+    
+.downloadIcon img{
+    width: 100px;
+}
+.followUs span, .downloadApp span{
+    font-size: 18px;
+    font-weight: 500;
+}
+.followIcons :nth-child(n), .downloadIcon :nth-child(n){
+    margin: 5px 10px;
 }

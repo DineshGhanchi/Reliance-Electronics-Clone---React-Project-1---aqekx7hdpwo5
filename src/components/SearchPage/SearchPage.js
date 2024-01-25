@@ -6,7 +6,8 @@ import FilterBox from '../FilterBox/FilterBox';
 import { useSearch } from '../../context/SearchContext';
 import Product from '../Product/Product';
 import Dropdowns from '../Dropdown/Dropdown';
-import { ThreeDots } from 'react-loader-spinner';
+import Loader from '../Loader/Loader';
+import Pagination from '../Pagination/Pagination';
 
 
 
@@ -22,19 +23,8 @@ const SearchPage = () => {
   return (
     <>
       {!searchResult
-        ? < div className={styles.loader}>
-           <ThreeDots
-            visible={true}
-            height="80"
-            width="80"
-            color="red"
-            radius="9"
-            ariaLabel="three-dots-loading"
-            wrapperStyle={{}}
-            wrapperClass=""
-          />
-        </div >
-        : <div className={styles.searchPage}>
+        ? <Loader />
+        : <div className={styles.searchPage }>
           <SearchPageHeader catagoryName={id} />
           <div className={styles.container}>
             <div className={styles.asideHead}><span>FILTERS</span></div>
@@ -52,10 +42,10 @@ const SearchPage = () => {
               <FilterBox data={searchResult} />
             </div>
             <div className={styles.cardBox}>
+              <div className={styles.paginationBox}><Pagination /></div>
               {searchResult && searchResult.map((product, index) => {
-                return <Link to={/productDetail/ + product._id} style={{textDecoration:"none"}}><Product product={product} index={index} key={index} /></Link>
+                return <Link to={/productDetail/ + product._id} style={{textDecoration:"none"}} key={index}><Product product={product} index={index} key={index} /></Link>
               })}
-
             </div>
           </div>
         </div>
