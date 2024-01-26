@@ -18,3 +18,16 @@
     display: inline-block;
    
 }
+
+/*================ media ================== */
+@media screen and (max-width: 445px){
+   .sectionHeading{
+    font-size: 13px;
+    padding: 5px 5px;
+   }
+   .productList Button{
+      font-size: 10px;
+      width: 80px;
+      height: 30px;
+   }
+}

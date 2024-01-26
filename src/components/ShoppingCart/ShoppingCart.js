@@ -23,6 +23,7 @@ const ShoppingCart = () => {
             setTimeout(() => {
                 setCartItem(result);
             }, 2000)
+           
         }
         fetchCartItems();
     }, [])

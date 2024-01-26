@@ -24,8 +24,7 @@
 }
 .OutsideNavigation{
     display: flex;
-    justify-content: flex-start;
-    margin-left: 130px;
+    justify-content: space-around;
     padding: 40px;
     flex-wrap: wrap;
 }
