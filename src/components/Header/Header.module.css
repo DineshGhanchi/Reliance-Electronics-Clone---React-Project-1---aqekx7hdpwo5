@@ -92,6 +92,9 @@
     .header{
        height: 50px; 
     }
+    .logoutModal li{
+        margin-bottom: 2px;
+    }
     
 }
 @media screen and (max-width: 400px){

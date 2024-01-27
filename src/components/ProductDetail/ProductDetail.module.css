@@ -148,5 +148,55 @@
 @media screen and (max-width: 520px){
      .mainImage img{
         width: 200px;
+        height: 200px;
      }
+    .mediaCarousal button{
+        display: none;
+     }
+    .mediaBox img{
+        width: 100px;
+        height: 100px;
+     }
+    .productname{
+        font-size: 17px;
+     }
+    .price :first-child{
+        font-size: 14px;
+        margin-right: 5px;
+    }
+    .price :last-child{
+          font-size: 18px;
+          color: blue;
+          font-weight: 500;
+    }
+    .features span{
+        font-size: 15px;
+        font-weight: 700;
+        color: rgb(66, 54, 54);
+    }
+    .features li{
+        font-size: 13px;
+    }
+    .cartButton :first-child{
+        background-color: red;
+        padding: 5px 10px;
+        color: white;
+        font-size: 15px;
+        font-weight: 500;
+        border: none;
+        border-radius: 3px;
+        margin-right: 7px;
+    }
+    .cartButton :last-child{
+        width: 115px;
+        background-color: #fc6027;
+        padding: 5px 10px;
+        color: white;
+        font-size: 15px;
+        font-weight: 500;
+        border: none;
+        border-radius: 3px;
+        margin-left: 7px;
+    }
+    
 }

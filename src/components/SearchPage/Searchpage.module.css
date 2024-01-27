@@ -22,6 +22,10 @@
     align-items: center;
     padding: 0 30px;
 }
+.catName{
+   font-size: 20px;
+   font-weight: 600; 
+}
 .cardBox{
   display: flex;
   flex-wrap: wrap;
@@ -67,11 +71,20 @@
 
   }
 }
-@media screen and (max-width: 482px){
+@media screen and (max-width: 565px){
     .aside , .asideHead{
       display: none;
     }
     .container{
       display: block;
     }
+}
+@media screen and (max-width: 485px){
+  .catName{
+    font-size: 16px;
+    font-weight: 500; 
+ }
+ .cardBoxHeader{
+  padding: 0 5px;
+ } 
 }

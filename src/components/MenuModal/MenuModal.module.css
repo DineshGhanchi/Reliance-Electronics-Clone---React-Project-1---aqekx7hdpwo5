@@ -10,7 +10,7 @@
 }
 .container ul{
     list-style: none;
-    padding: 0 ;
+    padding: 0;
 
 }
 .container li{
@@ -33,6 +33,16 @@
 @media screen and (max-width: 1050px){
     .container{
         left: 25%;
+    }
+}
+@media screen and (max-width: 600px){
+    .container{
+        top: 80px;
+        left: 8%;
+        padding: 15px;
+    }
+    .container ul li{
+        margin-bottom: 0px;
     }
 }
 @media screen and (max-width: 600px){

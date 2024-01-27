@@ -42,3 +42,16 @@
 .followIcons :nth-child(n), .downloadIcon :nth-child(n){
     margin: 5px 10px;
 }
+
+
+/* ============== media quary ================== */
+
+@media screen and (max-width: 520px){
+    .followUs span, .downloadApp span{
+        font-size: 15px;
+        font-weight: 500;
+    }
+    .downloadIcon img{
+        width: 75px;
+    }
+}

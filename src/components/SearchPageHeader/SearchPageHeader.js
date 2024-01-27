@@ -8,9 +8,9 @@ import { Link } from 'react-router-dom';
 const SearchPageHeader = ({catagoryName}) => {
   return (
     <div className={styles.searchPageHeader}>
-       <Link to='/'><span style={{fontSize:'25px'}}><FaHome /></span></Link>  
-       <span><IoIosArrowForward /></span>  
-       <span>{catagoryName}</span>  
+       <Link to='/'><span style={{fontSize:'25px'}} className={styles.homeIcon}><FaHome /></span></Link>  
+       <span className={styles.arrow}><IoIosArrowForward /></span>  
+       <span className={styles.itemName}>{catagoryName}</span>  
     </div> 
 
   )

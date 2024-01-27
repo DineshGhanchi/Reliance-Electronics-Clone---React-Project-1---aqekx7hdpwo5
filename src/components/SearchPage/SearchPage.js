@@ -29,7 +29,7 @@ const SearchPage = () => {
           <div className={styles.container}>
             <div className={styles.asideHead}><span>FILTERS</span></div>
             <div className={styles.cardBoxHeader}>
-              <span>Searching for : <span style={{ fontSize: '20px', fontWeight: "600" }}>{id}</span></span>
+              <span>Searching for : <span className={styles.catName}>{id}</span></span>
               <div className={styles.sorting}>
                 {/* <span>Sort By:</span>
             <Button variant="contained" style={{margin:'0 10px'}}>Price(Low-High)</Button>

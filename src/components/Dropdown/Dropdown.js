@@ -5,6 +5,7 @@ import { MenuButton as BaseMenuButton } from '@mui/base/MenuButton';
 import { MenuItem as BaseMenuItem, menuItemClasses } from '@mui/base/MenuItem';
 import { styled } from '@mui/system';
 import { useSearch } from '../../context/SearchContext';
+import styles from './Dropdown.module.css';
 
 export default function Dropdowns() {
   const {setSearchResult,clickEvent} = useSearch();

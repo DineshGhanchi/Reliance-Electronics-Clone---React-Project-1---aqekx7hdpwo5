@@ -12,3 +12,11 @@
     color: rgb(174, 168, 163);
     opacity: 1;
   }
+
+@media screen and (max-width: 450px){
+   .pagination button{
+      width: 55px;
+      font-size: 13px;
+      padding: 3px;
+   }
+}
