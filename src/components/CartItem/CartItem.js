@@ -1,19 +1,21 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styles from './CartItem.module.css'
 
-const CartItem = ({productDetail}) => {
+const CartItem = ({ productDetail }) => {
   const user = JSON.parse(localStorage.getItem("userLoginDetail"));
-  async function handleRemoveButton(){
-     const response = fetch(`https://academics.newtonschool.co/api/v1/ecommerce/cart/${productDetail.product._id}`,{
-       method: 'DELETE',
-       headers: {
-        projectID: "f104bi07c490",
-        Authorization: `Bearer ${user.token}`                    
-       }
-     })
-     console.log("response" ,response);
-  }
 
+  async function handleRemoveButton(){
+    const response = fetch(`https://academics.newtonschool.co/api/v1/ecommerce/cart/${productDetail.product._id}`, {
+      method: 'DELETE',
+      headers: {
+        projectID: "f104bi07c490",
+        Authorization: `Bearer ${user.token}`
+      }
+    })
+    console.log("response", response);
+  }
+  
+  
   return (
     <div className={styles.mainBox}>
       <div className={styles.container}>

@@ -14,6 +14,8 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from "react-router-dom";
 import { ContactlessOutlined } from '@mui/icons-material';
+import { FaHome } from "react-icons/fa";
+
 
 function Copyright(props) {
   return (
@@ -72,7 +74,9 @@ export default function  LoginPage() {
   };
 
   return (
+
     <ThemeProvider theme={defaultTheme}>
+      <Link href='/'><span style={{padding:'50px',fontSize:'25px'}}><FaHome /></span></Link>  
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box

@@ -2,14 +2,20 @@ import React, { useEffect, useState } from 'react'
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import CartItem from '../CartItem/CartItem';
 import styles from './ShoppingCart.module.css'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Loader from '../Loader/Loader';
 
 const ShoppingCart = () => {
     const [cartItem, setCartItem] = useState(null);
+    const navigate = useNavigate();
     useEffect(() => {
+       try{ 
         async function fetchCartItems() {
             const user = JSON.parse(localStorage.getItem("userLoginDetail"));
+            if (user === null) {
+                navigate('/login');
+                return;
+            }
             const response = await fetch('https://academics.newtonschool.co/api/v1/ecommerce/cart',
                 {
                     method: "GET",
@@ -22,10 +28,12 @@ const ShoppingCart = () => {
             console.log(result);
             setTimeout(() => {
                 setCartItem(result);
-            }, 2000)
-           
+            }, 2000)     
         }
         fetchCartItems();
+    }catch(error){
+        console.log(error);
+    }
     }, [])
     return (
         <>
