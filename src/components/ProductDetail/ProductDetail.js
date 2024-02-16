@@ -75,7 +75,7 @@ const ProductDetail = () => {
         }
     }
     return (
-        <>
+        <div className={styles.productdetail}>
             {!productDetail 
                 ? <Loader />
                 : <div>
@@ -125,7 +125,7 @@ const ProductDetail = () => {
                     </div>
                 </div>
             }
-        </>
+        </div>
     )
 }
 

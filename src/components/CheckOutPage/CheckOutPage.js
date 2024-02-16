@@ -55,7 +55,7 @@ export default function Checkout() {
   };
 
   return (
-    <React.Fragment>
+    <div style={{marginTop:'110px'}}>
       <CssBaseline />
       <AppBar
         position="absolute"
@@ -114,6 +114,6 @@ export default function Checkout() {
         </Paper>
         <Copyright />
       </Container>
-    </React.Fragment>
+    </div>
   );
 }

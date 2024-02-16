@@ -2,6 +2,7 @@ import React from 'react'
 import Carousel from 'react-bootstrap/Carousel';
 import ProductList from '../ProductList/ProductList';
 import Banner from '../Banner/Banner';
+import styles from './Home.module.css'
 
 export const Home = () => {
   const url1 = 'https://academics.newtonschool.co/api/v1/ecommerce/electronics/products?sort={"price":-1}'
@@ -13,9 +14,9 @@ export const Home = () => {
   const url7 = 'https://academics.newtonschool.co/api/v1/ecommerce/electronics/products?filter={"subCategory":"laptop"}'
 
   return (
-  <>  
+  <div className={styles.home}>  
     <Banner />
-    <Carousel>
+    <Carousel style={{zIndex:'-1'}}>
     <Carousel.Item>
     <img 
         src="https://www.reliancedigital.in/medias/Laptop-Carnival-Lenovo-Banner-D.jpg?context=bWFzdGVyfGltYWdlc3wxMDUxMDR8aW1hZ2UvanBlZ3xpbWFnZXMvaDRkL2hhZC8xMDA4NjkzNDQ0NjExMC5qcGd8OWYwY2Y4ZmNlN2QxNGEyYmIxMmEwZmVjMjAwNGYzOWZiZDcwYjg2NWI3OWQyYWQ0MzQzZjkzZDYzNjZkNzJjNA" 
@@ -73,6 +74,6 @@ export const Home = () => {
   <ProductList  sectionName={"Bestselling refrigeration"} url={url4}/>
   <ProductList  sectionName={"Bestselling Ac"} url={url3}/>
   <ProductList  sectionName={"Bestselling tv"} url={url6}/>
-</>  
+</div>  
   )
 }

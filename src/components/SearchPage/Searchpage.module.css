@@ -1,3 +1,6 @@
+.searchpage{
+  margin-top: 70px;
+}
 .container{
    display: grid;
    grid-template-rows: 60px auto;
@@ -69,6 +72,11 @@
   .container{
    grid-template-columns: .3fr 3fr;
 
+  }
+}
+@media screen and (max-width: 600px){
+  .searchpage{
+    margin-top: 50px;
   }
 }
 @media screen and (max-width: 565px){

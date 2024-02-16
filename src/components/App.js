@@ -1,5 +1,4 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from "./Header/Header";
 import { Home } from "./Home/Home";
 import {Routes, Route} from "react-router-dom"
 import PageLayout from './PageLayout/PageLayout';
@@ -19,7 +18,7 @@ function App() {
     <SearchProvider>
         <Routes>
           <Route path="/" element={<PageLayout/>}>
-            <Route path="" element={<Home />} />
+            <Route path="" element={<Home style={{marginTop:'100px'}}/>} />
             <Route path="cart" element={<ShoppingCart />} />
             <Route path="/searchPage/:id" element={<SearchPage />} />
             <Route path="/productDetail/:id" element={<ProductDetail/>} />

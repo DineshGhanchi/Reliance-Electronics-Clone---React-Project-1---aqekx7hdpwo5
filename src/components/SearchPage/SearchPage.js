@@ -21,7 +21,7 @@ const SearchPage = () => {
   // },[searchResult]);
 
   return (
-    <>
+    <div className={styles.searchpage}>
       {!searchResult
         ? <Loader />
         : <div className={styles.searchPage }>
@@ -38,7 +38,7 @@ const SearchPage = () => {
               </div>
 
             </div>
-            <div className={styles.aside}>
+            <div className={styles.aside} >
               <FilterBox data={searchResult} />
             </div>
             <div className={styles.cardBox}>
@@ -50,7 +50,7 @@ const SearchPage = () => {
           </div>
         </div>
       }
-    </>
+    </div>
   )
 }
 

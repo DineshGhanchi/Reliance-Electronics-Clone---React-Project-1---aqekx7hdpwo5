@@ -1,3 +1,6 @@
+.productdetail{
+    margin-top: 70px;
+}
 .container{
     display: flex;
     justify-content: space-around;
@@ -143,6 +146,11 @@
         align-items: center;
         justify-content: center;
     }
+}
+@media screen and (max-width: 600px){
+   .productdetail{
+     margin-top: 50px;
+   }
 }
 
 @media screen and (max-width: 520px){

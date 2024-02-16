@@ -9,6 +9,7 @@
     padding: 20px;
     margin: 0 30px;
     gap: 30px;
+    margin-top: 70px;
     
 }
 .counterLocation{
@@ -119,3 +120,8 @@
      flex-direction: column;
    }
 }
+@media screen and (max-width: 600px){
+    .container{
+       margin-top: 50px;
+    }
+ }

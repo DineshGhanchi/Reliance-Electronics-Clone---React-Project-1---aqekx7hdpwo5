@@ -1,0 +1,8 @@
+.home{
+  margin-top: 70px;
+}
+@media screen and (max-width: 600px){
+   .home{
+    margin-top: 50px;
+   }
+}

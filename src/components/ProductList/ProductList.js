@@ -44,7 +44,7 @@ const ProductList = ({ sectionName , url}) => {
     <section className={styles.productList} >
       <h6 className={styles.sectionHeading}>{sectionName}</h6>
       <Link to='searchPage/viewAll' >
-        <Button variant="contained" onClick={handleViewAllData} style={{margin:'0 10px'}}>View All</Button>
+        <Button variant="contained" onClick={handleViewAllData} style={{margin:'0 10px',zIndex:'-1'}}>View All</Button>
       </Link>
       <CardGroup products={products}/>
     </section>
